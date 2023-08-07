@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="Concernant NF Design" description="About Jeanine White Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="NF Design c'est quoi ?"
+				tagline="Merci de vous intéresser à mon travail, apprenez à nous connaître, mon background et moi-même."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/atwork.jpg.jpg"
+					alt="Jeanine White at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						En tant qu'auto-entrepreneur passionné de web design, je suis animé par une soif inextinguible de réussir et d'offrir le meilleur à mes clients. Chaque jour, je m'investis avec sérieux et détermination pour créer des solutions web exceptionnelles, alliant esthétique et fonctionnalité. Mon parcours autodidacte dans le développement web est une preuve de mon désir constant de me perfectionner et de rester à la pointe des nouvelles technologies.
+
+Je prends à cœur chaque projet, en travaillant étroitement avec mes clients pour comprendre leurs besoins spécifiques et leur offrir des solutions sur mesure. Mon engagement envers l'excellence et ma capacité à m'adapter rapidement aux exigences du marché font de moi un partenaire fiable pour tout projet web.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Diplômes</h2>
+				<div class="content">
+					<p>BTS Assurances obtenu en 2010.</p>
+					<p>Licence Professionnelle de Droit obtenue en 2012.</p>
+					<p>Formation Développeur Web et applications Web, de Mars 2022 à Juin 2023.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Connaissances</h2>
+				<div class="content">
+					<p>Je connais les principaux langages de programmation de 2023, j'ai essentiellement travaillé sur React, Node.js, mais aussi PHP avec notamment le CMS Wordpress ou encore le framework Astro.</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
